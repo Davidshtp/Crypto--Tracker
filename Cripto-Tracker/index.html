@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoTracker - Monitoreo de Criptomonedas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/views.css">
+</head>
+
+<body data-theme="dark">
+    <!-- HEADER COMÚN -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo" id="logoBtn">CryptoTracker</div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+                <div class="search-container">
+                    <input type="search" class="search-input" id="searchInput" placeholder="Buscar criptomoneda...">
+                    <div class="search-dropdown" id="searchDropdown">
+                        <!-- Resultados de búsqueda dinámicos -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== VISTA DASHBOARD ===== -->
+    <div class="dashboard-view" id="dashboardView">
+        <main class="main-content">
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <h1>Monitoreo Crypto</h1>
+                <p class="hero-subtitle">Seguimiento en tiempo real de las principales criptomonedas del mercado</p>
+
+                <div class="live-stats" id="liveStats">
+                    <!-- Estadísticas en tiempo real -->
+                </div>
+            </section>
+
+            <!-- CONTROLS -->
+            <section class="controls">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="gainers">Ganadoras</button>
+                    <button class="filter-btn" data-filter="losers">Perdedoras</button>
+                    <button class="filter-btn" data-filter="favorites">Favoritas</button>
+                </div>
+
+                <div class="sort-filters" id="sortFilters">
+                    <button class="sort-btn" data-sort="name">Nombre</button>
+                    <button class="sort-btn" data-sort="price">Precio</button>
+                    <button class="sort-btn active" data-sort="default">Por defecto</button>
+                </div>
+
+                <select class="currency-select" id="currencySelect">
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                </select>
+            </section>
+
+            <!-- DASHBOARD -->
+            <section class="dashboard">
+                <!-- VISTA DE LISTA (Para "Todas") -->
+                <div class="crypto-list active" id="cryptoList">
+                    <div class="list-header">
+                        <div>Moneda</div>
+                        <div>Precio</div>
+                        <div>24h %</div>
+                        <div>Market Cap</div>
+                        <div>Volumen 24h</div>
+                        <div></div>
+                    </div>
+                    <!-- Los elementos de lista se generarán dinámicamente -->
+                </div>
+
+                <!-- VISTA DE TARJETAS (Para "Ganadoras", "Perdedoras" y "Favoritas") -->
+                <div class="crypto-grid" id="cryptoGrid">
+                    <!-- Las tarjetas se generarán dinámicamente -->
+                </div>
+
+                <!-- PAGINACIÓN (Solo para "Todas") -->
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prevPage">Anterior</button>
+                    <span class="pagination-info" id="pageInfo">Página 1 de 1</span>
+                    <button class="pagination-btn" id="nextPage">Siguiente</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ===== VISTA DETALLADA ===== -->
+    <div class="detail-view" id="detailView">
+        <!-- HEADER DETALLADO -->
+        <section class="detail-header">
+            <div class="detail-header-content">
+                <button class="back-btn" id="backBtn">
+                    ← Volver al Dashboard
+                </button>
+
+                <div class="detail-crypto-info">
+                    <img src="" alt="" class="detail-crypto-logo" id="detailLogo">
+                    <div class="detail-crypto-text">
+                        <h1 id="detailName"></h1>
+                        <span class="symbol" id="detailSymbol"></span>
+                    </div>
+                </div>
+
+                <div class="detail-price-info">
+                    <div class="detail-price" id="detailPrice"></div>
+                    <div class="detail-change" id="detailChange">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENIDO DETALLADO -->
+        <section class="detail-content">
+            <!-- ESTADÍSTICAS PRINCIPALES -->
+            <div class="detail-main">
+                <div class="stats-grid" id="statsGrid">
+                    <!-- Estadísticas detalladas -->
+                </div>
+            </div>
+
+            <!-- INFORMACIÓN ADICIONAL -->
+            <div class="detail-sidebar">
+                <div class="info-card">
+                    <h3 class="info-title">📊 Información Adicional</h3>
+                    <div class="info-list" id="infoList">
+                        <!-- Información adicional -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Powered by CoinGecko API • Actualizado cada 30 segundos</p>
+    </footer>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
