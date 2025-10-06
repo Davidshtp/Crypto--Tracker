@@ -75,11 +75,6 @@ class CryptoService {
         return this.fetchWithCache(`${this.baseURL}/global`, 'global');
     }
 
-    // ======== Limpiar Cache (opcional) ========
-    clearCache(key) {
-        if (key) this.cache.delete(key);
-        else this.cache.clear();
-    }
 }
 
 // ======== Instancia única ========
